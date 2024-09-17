@@ -14,7 +14,8 @@ const config: Config = {
         patriciaGreen:'#006156',
         patriciaLightGreen:'#C8E2DE',
         patriciaTextGreen:'#63BDAF',
-        patricialineGreen:'#388379'
+        patricialineGreen:'#388379',
+        patriciaGrey:'#575A65',
       },
     },
   },
