@@ -26,7 +26,7 @@ const Sidebar: React.FC = () => {
                 href="#"
                 className="flex items-center text-[14px] font-medium text-primaryColor hover:text-gray-900 mb-10"
               >
-                <Image src="/dashboard.svg" alt="Logo" width={24} height={24} />
+                <Image src="/dashboard.svg" alt="Dashboard" width={24} height={24} />
                 <span className="ml-5 font-normal"> Dashboard</span>
               </a>
             </li>
@@ -35,7 +35,7 @@ const Sidebar: React.FC = () => {
                 href="#"
                 className="flex items-center text-[14px] font-medium text-primaryColor hover:text-gray-900 mb-10"
               >
-                <Image src="/activity.svg" alt="Logo" width={20} height={20} />
+                <Image src="/activity.svg" alt="Activity" width={20} height={20} />
                 <span className="ml-5">Activity</span>
               </a>
             </li>
@@ -44,7 +44,7 @@ const Sidebar: React.FC = () => {
                 href="#"
                 className="flex items-center text-[14px] font-medium text-primaryColor hover:text-gray-900 mb-10"
               >
-                <Image src="/wallet.svg" alt="Logo" width={20} height={20} />{" "}
+                <Image src="/wallet.svg" alt="Wallet" width={20} height={20} />
                 <span className="ml-5"> Wallet</span>
               </a>
             </li>
@@ -53,7 +53,7 @@ const Sidebar: React.FC = () => {
                 href="#"
                 className="flex items-center text-[14px] font-medium text-primaryColor hover:text-gray-900 mb-10"
               >
-                <Image src="/products.svg" alt="Logo" width={20} height={20} />
+                <Image src="/products.svg" alt="Products" width={20} height={20} />
                 <span className="ml-5"> Products</span>
               </a>
             </li>
@@ -62,7 +62,7 @@ const Sidebar: React.FC = () => {
                 href="#"
                 className="flex items-center text-[14px] font-medium text-primaryColor hover:text-gray-900 mb-10"
               >
-                <Image src="/referral.svg" alt="Logo" width={20} height={20} />{" "}
+                <Image src="/referral.svg" alt="Referral" width={20} height={20} />
                 <span className="ml-5">Referral</span>
               </a>
             </li>
@@ -70,9 +70,9 @@ const Sidebar: React.FC = () => {
             <li>
               <a
                 href="#"
-                className="flex items-center text-[14px] font-medium text-primaryColor hover:text-gray-900 mb-10"
+                className="flex items-center text-[14px] font-medium text-primaryColor hover:text-gray-900 mt-80"
               >
-                <Image src="/question.svg" alt="Logo" width={20} height={20} />{" "}
+                <Image src="/question.svg" alt="Help Center" width={20} height={20} />
                 <span className="ml-5"> Help Center </span>
               </a>
             </li>

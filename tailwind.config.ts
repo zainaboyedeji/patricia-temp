@@ -10,6 +10,11 @@ const config: Config = {
     extend: {
       colors: {
         primaryColor: '#979AA5', 
+        secondaryColor: '#444854', 
+        patriciaGreen:'#006156',
+        patriciaLightGreen:'#C8E2DE',
+        patriciaTextGreen:'#63BDAF',
+        patricialineGreen:'#388379'
       },
     },
   },
