@@ -17,14 +17,43 @@ const Sidebar: React.FC = () => {
   const [activeLink, setActiveLink] = useState("Dashboard");
 
   return (
-    <div className="border-r">
-      <div className="lg:hidden p-4 bg-white shadow-md">
+    <div className="border-r bg-white lg:bg-transparent">
+      {/* Mobile Burger Menu */}
+      <div className="lg:hidden p-4 bg-white shadow-md flex items-center justify-between">
         <FaBars className="text-2xl" onClick={() => setIsOpen(!isOpen)} />
+
+        {/* Icons Section */}
+        <div className="flex justify-end">
+          <div className="flex justify-end bg-white p-2 w-[50%] rounded-lg">
+            <Image
+              src="/notification.svg"
+              alt="Notification"
+              width={30}
+              height={30}
+              className="mr-2"
+            />
+            <Image
+              src="/girl.svg"
+              alt="Girl"
+              width={30}
+              height={30}
+              className="mr-2"
+            />
+            <Image
+              src="/ellipsis.svg"
+              alt="Ellipsis"
+              width={5}
+              height={5}
+            />
+          </div>
+        </div>
       </div>
+
+      {/* Sidebar */}
       <div
         className={`lg:block ${
           isOpen ? "block" : "hidden"
-        } lg:w-64 h-screen fixed lg:relative z-50`}
+        } lg:w-64 h-screen fixed lg:relative z-50 bg-white`}
       >
         <div className="mt-10 p-4 pl-8">
           <Image

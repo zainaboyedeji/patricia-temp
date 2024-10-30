@@ -20,7 +20,7 @@ const Dashboard: React.FC = () => {
               <WalletOverview />
               <RecentActivity />
             </div>
-            <div>
+            <div className="hidden lg:block">
               <div className="flex justify-end">
                 <div className="flex justify-end bg-white p-2 w-[30%] rounded-lg">
                   <Image

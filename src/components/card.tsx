@@ -63,11 +63,11 @@ const Card = () => {
         </button>
       </div>
 
-      <div className="flex space-x-5">
+      <div className="block lg:flex space-x-5">
         {cardData.map((card, index) => (
           <div
             key={index}
-            className={`w-full rounded-2xl ${card.bgColor} p-6 relative overflow-hidden h-[204px] ${card.blur}`}
+            className={`w-full rounded-2xl ${card.bgColor} p-6 relative overflow-hidden h-[204px] mt-4 ${card.blur}`}
           >
             <div className="absolute top-4 right-4">
               <Image src={card.eyeIcon} alt="Eye" width={20} height={20} />

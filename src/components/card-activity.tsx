@@ -86,7 +86,7 @@ const activities: Activity[] = [
 
 const CardActivity: FC = () => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 w-full sm:max-w-md mx-auto">
+    <div className="bg-white rounded-lg shadow-md p-6 w-full mx-auto">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-gray-600 font-semibold">Recent Activity</h2>
         <div className="flex items-center space-x-2">
