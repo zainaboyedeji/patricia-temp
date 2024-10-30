@@ -4,7 +4,7 @@ import FinancialDashboard from "./financial-graph";
 
 const WalletOverview: React.FC = () => {
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md">
+    <div className="p-6 rounded-lg">
       <div className="flex">
         <Image src="/naira.svg" alt="Naira" width={40} height={40} />
         <div className="ml-4">

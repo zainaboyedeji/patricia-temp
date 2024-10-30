@@ -54,23 +54,28 @@ const RecentActivity: React.FC = () => {
       </div>
 
       <div className="p-6 bg-white rounded-lg shadow-md mt-6 border-[1px] border-[#EFF2F7]">
-        <h3 className="text-base lg:text-lg font-semibold text-gray-800">
-          Recent Activity
-        </h3>
+        <h3 className="text-sm lg:text-lg text-[#9DA8B6]">Recent Activity</h3>
 
         <ul className="mt-4 space-y-2 lg:space-y-4">
           {transactions.map((transaction, idx) => (
             <li
               key={idx}
               className="flex flex-wrap lg:flex-nowrap justify-between items-center text-sm lg:text-base w-full hover:bg-gray-200 transition-colors duration-200 p-2"
-              >
+            >
               <div className="w-1/5">
-                <Image src="/naira.svg" alt="Naira" width={20} height={20} />
+                <Image
+                  src="/naira-light.svg"
+                  alt="Naira"
+                  width={40}
+                  height={40}
+                />
               </div>
 
-              <span className="text-patriciaGrey w-1/5 font-bold">{transaction.type}</span>
-              <span className="text-gray-600 w-1/5">{transaction.amount}</span>
-              <span className="text-gray-500 w-1/5">{transaction.time}</span>
+              <span className="text-patriciaGrey w-1/5 font-bold">
+                {transaction.type}
+              </span>
+              <span className="text-[#9DA8B6] w-1/5">{transaction.amount}</span>
+              <span className="text-[#9DA8B6] w-1/5">{transaction.time}</span>
 
               <span
                 className={`w-1/5 text-center lg:text-left font-bold ${

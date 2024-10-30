@@ -12,7 +12,7 @@ const FinancialDashboard: React.FC = () => {
           <p className="text-sm text-gray-300 mt-2">Book Balance: ₦450,000.093</p>
         </div>
 
-        <div className="mt-4 lg:mt-0 border-l-[1px] border-[patricialineGreen]">
+        <div className="mt-4 lg:mt-0 border-l-[1px] border-patricialineGreen pl-6">
           <Image
             src={GraphTime}
             alt="Logo"

@@ -10,17 +10,17 @@ const TabComponent: React.FC = () => {
         <div className="p-6 mt-6">
           <h3 className="text-base lg:text-lg font-semibold text-gray-800 text-center">Select a method to Fund <br/> Naira wallet below</h3>
           <div className="mt-4 space-y-2 lg:space-y-4">
-            <div className="flex justify-between items-center bg-gray-100 p-4 rounded-lg">
+            <div className="flex justify-between items-center shadow-md p-4 rounded-lg">
             <Image src="/bank.svg" alt="Bank" width={40} height={40} />
             <span className="text-sm lg:text-base text-gray-600">Bank Deposit</span>
             <Image src="/arrow.svg" alt="Arrow" width={10} height={10} />
             </div>
-            <div className="flex justify-between items-center bg-gray-100 p-4 rounded-lg">
+            <div className="flex justify-between items-center shadow-md p-4 rounded-lg">
             <Image src="/mobile-phone-button.svg" alt="Mobile Phone" width={40} height={40} />
             <span className="text-sm lg:text-base text-gray-600">USSD Deposit</span>
             <Image src="/arrow-deep.svg" alt="Arrow Deep" width={10} height={10} />
             </div>
-            <div className="flex justify-between items-center bg-gray-100 p-4 rounded-lg">
+            <div className="flex justify-between items-center shadow-md p-4 rounded-lg">
             <Image src="/red-deposit.svg" alt="Red Deposit" width={40} height={40} />
             <span className="text-sm lg:text-base text-gray-600">Card Deposit</span>
             <Image src="/arrow.svg" alt="Arrow" width={10} height={10} />
@@ -56,13 +56,13 @@ const TabComponent: React.FC = () => {
     <div className='bg-white rounded-lg shadow-md mt-5'>
       <div className="flex w-full">
         <button
-          className={`py-2 px-4 w-[50%] ${activeTab === 'deposit' ? 'bg-red-100' : ''}`}
+          className={`py-2 px-4 w-[50%] ${activeTab === 'deposit' ? 'text-patriciaGreen' : 'bg-[#EFF2F7] text-[#9DA8B6]'}`}
           onClick={() => setActiveTab('deposit')}
         >
           Deposit
         </button>
         <button
-          className={`py-2 px-4 w-[50%] ${activeTab === 'wallet' ? 'bg-red-100' : ''}`}
+          className={`py-2 px-4 w-[50%] ${activeTab === 'wallet' ? 'text-patriciaGreen' : 'bg-[#EFF2F7] text-[#9DA8B6]'}`}
           onClick={() => setActiveTab('wallet')}
         >
           Wallet
