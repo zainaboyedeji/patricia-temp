@@ -19,8 +19,23 @@
 body {
   font-family: 'Gilroy', sans-serif;
   background-color: white;
+  overflow: hidden;
 }
 
 button, a, [role="button"] {
   @apply cursor-pointer;
+}
+
+.card-bg-pattern {
+  background-image: url('/$.svg'), url('/pattern-bg.svg');
+  background-position: left bottom, right top;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.card-bg-pattern-2 {
+  background-image: url('/N.svg'), url('/pattern.svg');
+  background-position: left bottom, right top;
+  background-repeat: no-repeat;
+  background-size: auto;
 }

@@ -21,46 +21,72 @@ const transactions = [
 const RecentActivity: React.FC = () => {
   return (
     <>
-      <div className="flex mt-5 w-full justify-between">
-        <div className="flex justify-between items-center bg-white p-4 rounded-lg w-[48%] border-[1px] border-[#EFF2F7]">
+      <div className="flex w-full justify-between mt-2">
+        <div className="flex justify-between items-center bg-white p-4 rounded-lg w-[48%] border-[1px] border-[#EFF2F7] group transition-colors duration-200">
           <Image
             src="/request.svg"
             alt="Request Money"
             width={40}
             height={40}
+            className="transition duration-300"
           />
-          <span className="text-sm lg:text-base text-gray-600">
+          <span className="text-sm lg:text-base text-[#444854] group-hover:text-patriciaGreen">
             Request Money
           </span>
-          <Image src="/arrow.svg" alt="Arrow" width={10} height={10} />
+          <div className="relative">
+            <Image
+              src="/arrow.svg"
+              alt="Arrow Light"
+              width={10}
+              height={10}
+              className="transition duration-300"
+            />
+            <Image
+              src="/arrow-deep.svg"
+              alt="Arrow Deep"
+              width={10}
+              height={10}
+              className="absolute top-0 left-0 transition duration-300 opacity-0 group-hover:opacity-100"
+            />
+          </div>
         </div>
-        <div className="flex justify-between items-center bg-white p-4 rounded-lg w-[48%] border-[1px] border-[#EFF2F7]">
+        <div className="flex justify-between items-center bg-white p-4 rounded-lg w-[48%] border-[1px] border-[#EFF2F7] group hover:bg-gray-200 transition-colors duration-200">
           <Image
             src="/cardless-withdrawal.svg"
             alt="Cardless Withdrawal"
             width={40}
             height={40}
+            className="transition duration-300"
           />
-          <span className="text-sm lg:text-base text-gray-600">
+          <span className="text-sm lg:text-base text-[#444854] group-hover:text-patriciaGreen">
             Cardless Withdrawal
           </span>
-          <Image
-            src="/arrow-deep.svg"
-            alt="Arrow Deep"
-            width={10}
-            height={10}
-          />
+          <div className="relative">
+            <Image
+              src="/arrow.svg"
+              alt="Arrow Light"
+              width={10}
+              height={10}
+              className="transition duration-300"
+            />
+            <Image
+              src="/arrow-deep.svg"
+              alt="Arrow Deep"
+              width={10}
+              height={10}
+              className="absolute top-0 left-0 transition duration-300 opacity-0 group-hover:opacity-100"
+            />
+          </div>
         </div>
       </div>
 
-      <div className="p-6 bg-white rounded-lg shadow-md mt-6 border-[1px] border-[#EFF2F7]">
+      <div className="p-4 bg-white rounded-lg mt-6 border-[1px] border-[#EFF2F7]">
         <h3 className="text-sm lg:text-lg text-[#9DA8B6]">Recent Activity</h3>
-
-        <ul className="mt-4 space-y-2 lg:space-y-4">
+        <ul className="mt-4 space-y-2">
           {transactions.map((transaction, idx) => (
             <li
               key={idx}
-              className="flex flex-wrap lg:flex-nowrap justify-between items-center text-sm lg:text-base w-full hover:bg-gray-200 transition-colors duration-200 p-2"
+              className="flex pt-2 pb-2 pl-2 flex-wrap rounded lg:flex-nowrap justify-between items-center text-sm lg:text-base w-full hover:bg-patriciaGreen  transition-colors duration-200"
             >
               <div className="w-1/5">
                 <Image
@@ -71,11 +97,15 @@ const RecentActivity: React.FC = () => {
                 />
               </div>
 
-              <span className="text-patriciaGrey w-1/5 font-bold">
+              <span className="text-patriciaGrey w-1/5 font-bold hover:text-white">
                 {transaction.type}
               </span>
-              <span className="text-[#9DA8B6] w-1/5">{transaction.amount}</span>
-              <span className="text-[#9DA8B6] w-1/5">{transaction.time}</span>
+              <span className="text-[#9DA8B6] w-1/5 hover:text-white">
+                {transaction.amount}
+              </span>
+              <span className="text-[#9DA8B6] w-1/5 hover:text-white">
+                {transaction.time}
+              </span>
 
               <span
                 className={`w-1/5 text-center lg:text-left font-bold ${

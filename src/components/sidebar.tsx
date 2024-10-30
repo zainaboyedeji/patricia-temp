@@ -9,7 +9,7 @@ const links = [
   { name: "Wallet", icon: "/wallet.svg" },
   { name: "Products", icon: "/products.svg", href: "/card" },
   { name: "Referral", icon: "/referral.svg" },
-  { name: "Help Center", icon: "/question.svg", extraClasses: "mt-80" },
+  { name: "Help Center", icon: "/question.svg", extraClasses: "mt-60" },
 ];
 
 const Sidebar: React.FC = () => {
