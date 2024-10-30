@@ -3,11 +3,11 @@ import { FaRegCopy } from "react-icons/fa";
 
 const CardDetails: FC = () => {
   return (
-    <div className="bg-[#F9FAFC] rounded-lg p-6 w-full mx-auto">
+    <div className="bg-[#F9FAFC] rounded-lg p-6 w-full mx-auto mt-5">
       <div className="flex justify-between">
         <p className="text-[#9DA8B6]">Card Balance:</p>
         <p className="text-patriciaGreen font-medium">$3000.73</p>
-        <button className="px-2 py-2 border border-green-600 text-green-600 rounded-lg text-sm font-semibold hover:bg-green-50">
+        <button className="px-2 py-2 border border-green-600 text-green-600 rounded-lg text-sm font-semibold width-[118px] hover:bg-green-50">
           Fund Card
         </button>
       </div>

@@ -104,11 +104,11 @@ const Card = () => {
         ))}
       </div>
 
-      <div className="flex">
-        <Button color="border-green-600 text-green-600" hoverColor="hover:bg-green-50">
+      <div className="flex mt-5">
+        <Button color="border-green-600 text-green-600 w-[143px]" hoverColor="hover:bg-green-50">
           Freeze Card
         </Button>
-        <Button color="border-red-600 text-red-600" hoverColor="hover:bg-red-50">
+        <Button color="border-red-600 text-red-600 w-[143px]" hoverColor="hover:bg-red-50">
           Delete Card
         </Button>
       </div>
