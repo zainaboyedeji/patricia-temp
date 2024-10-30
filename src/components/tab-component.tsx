@@ -1,7 +1,61 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
-const TabComponent: React.FC = () => {
+interface DepositOptionProps {
+  iconSrc: string;
+  altText: string;
+  label: string;
+  defaultArrowSrc: string;
+  hoverArrowSrc: string;
+  labelClass?: string;
+  bgColor?: string;
+}
+
+const DepositOption: React.FC<DepositOptionProps> = ({
+  iconSrc,
+  altText,
+  label,
+  defaultArrowSrc,
+  hoverArrowSrc,
+  labelClass = "text-gray-600",
+  bgColor 
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className={`flex justify-between items-center p-4 rounded-2xl transition-colors duration-200 ${bgColor} hover:bg-gray-50`}
+      style={{
+        boxShadow:
+          "0px 10px 20px rgba(0, 0, 0, 0.05), 0px 5px 10px rgba(0, 0, 0, 0.02)",
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Image src={iconSrc} alt={altText} width={40} height={40} />
+      <span
+        className={`text-sm lg:text-base ${labelClass} ${
+          isHovered ? "text-patriciaGreen" : "text-gray-600"
+        } transition-colors duration-200`}
+      >
+        {label}
+      </span>
+      <Image
+        src={isHovered ? hoverArrowSrc : defaultArrowSrc}
+        alt="Arrow"
+        width={10}
+        height={10}
+        className="transition-all duration-200"
+      />
+    </div>
+  );
+};
+
+interface TabComponentProps {
+  bgColor?: string;
+}
+
+const TabComponent: React.FC<TabComponentProps> = ({ bgColor = "bg-white" }) => {
   const [activeTab, setActiveTab] = useState<"deposit" | "wallet">("deposit");
 
   const renderContent = () => {
@@ -12,97 +66,50 @@ const TabComponent: React.FC = () => {
             Select a method to Fund <br /> Naira wallet below
           </h3>
           <div className="mt-4 space-y-2 lg:space-y-4">
-            <div
-              className="flex justify-between items-center p-4 rounded-2xl bg-white"
-              style={{
-                boxShadow:
-                  "0px 10px 20px rgba(0, 0, 0, 0.05), 0px 5px 10px rgba(0, 0, 0, 0.02)",
-              }}
-            >
-              <Image src="/bank.svg" alt="Bank" width={40} height={40} />
-              <span className="text-sm lg:text-base text-gray-600">
-                Bank Deposit
-              </span>
-              <Image src="/arrow.svg" alt="Arrow" width={10} height={10} />
-            </div>
-
-            <div
-              className="flex justify-between items-center p-4 rounded-2xl bg-white"
-              style={{
-                boxShadow:
-                  "0px 10px 20px rgba(0, 0, 0, 0.05), 0px 5px 10px rgba(0, 0, 0, 0.02)",
-              }}
-            >
-              {" "}
-              <Image
-                src="/mobile-phone-button.svg"
-                alt="Mobile Phone"
-                width={40}
-                height={40}
-              />
-              <span className="text-sm lg:text-base text-gray-600">
-                USSD Deposit
-              </span>
-              <Image
-                src="/arrow-deep.svg"
-                alt="Arrow Deep"
-                width={10}
-                height={10}
-              />
-            </div>
-            <div
-              className="flex justify-between items-center p-4 rounded-2xl bg-white"
-              style={{
-                boxShadow:
-                  "0px 10px 20px rgba(0, 0, 0, 0.05), 0px 5px 10px rgba(0, 0, 0, 0.02)",
-              }}
-            >
-              {" "}
-              <Image
-                src="/red-deposit.svg"
-                alt="Red Deposit"
-                width={40}
-                height={40}
-              />
-              <span className="text-sm lg:text-base text-gray-600">
-                Card Deposit
-              </span>
-              <Image src="/arrow.svg" alt="Arrow" width={10} height={10} />
-            </div>
-            <div
-              className="flex justify-between items-center p-4 rounded-2xl bg-white"
-              style={{
-                boxShadow:
-                  "0px 10px 20px rgba(0, 0, 0, 0.05), 0px 5px 10px rgba(0, 0, 0, 0.02)",
-              }}
-            >
-              <Image
-                src="/graduation-cap.svg"
-                alt="Graduation Cap"
-                width={40}
-                height={40}
-              />
-              <span className="text-sm lg:text-[0.9rem] text-patriciaGreen font-bold">
-                Learn More about Funding your wallet
-              </span>
-              <Image
-                src="/arrow-deep.svg"
-                alt="Arrow Deep"
-                width={10}
-                height={10}
-              />
-            </div>
+            <DepositOption
+              iconSrc="/bank.svg"
+              altText="Bank"
+              label="Bank Deposit"
+              defaultArrowSrc="/arrow.svg"
+              hoverArrowSrc="/arrow-deep.svg"
+              bgColor="bg-white"
+            />
+            <DepositOption
+              iconSrc="/mobile-phone-button.svg"
+              altText="Mobile Phone"
+              label="USSD Deposit"
+              defaultArrowSrc="/arrow.svg"
+              hoverArrowSrc="/arrow-deep.svg"
+              bgColor="bg-white"
+            />
+            <DepositOption
+              iconSrc="/red-deposit.svg"
+              altText="Red Deposit"
+              label="Card Deposit"
+              defaultArrowSrc="/arrow.svg"
+              hoverArrowSrc="/arrow-deep.svg"
+              bgColor="bg-white"
+            />
+            <DepositOption
+              iconSrc="/graduation-cap.svg"
+              altText="Graduation Cap"
+              label="Learn More about Funding your wallet"
+              defaultArrowSrc="/arrow-deep.svg"
+              hoverArrowSrc="/arrow.svg"
+              labelClass="text-patriciaGreen font-bold"
+              bgColor="bg-patriciaLightGreen"
+            />
           </div>
         </div>
       );
     } else if (activeTab === "wallet") {
       return (
-        <div className="p-6 bg-white rounded-lg shadow-md mt-6">
+        <div className={`p-6 rounded-lg shadow-md mt-6 ${bgColor}`}>
           <h3 className="text-base lg:text-lg font-semibold text-gray-800">
             Wallet Information
           </h3>
           <p className="mt-4 text-sm lg:text-base text-gray-600">
-            Your wallet balance is{" "}
+            Your wallet balance is
             <span className="font-bold text-green-700">$1,200.00</span>.
           </p>
           <p className="mt-2 text-sm lg:text-base text-gray-600">
@@ -118,8 +125,8 @@ const TabComponent: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md mt-5 border border-[#EFF2F7]">
-      <div className="flex w-full ">
+    <div className={`rounded-lg shadow-md mt-5 border border-[#EFF2F7] ${bgColor}`}>
+      <div className="flex w-full">
         <button
           className={`p-6 w-[50%] ${
             activeTab === "deposit"

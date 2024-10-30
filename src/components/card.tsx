@@ -105,6 +105,14 @@ const Card = () => {
           </div>
         </div>
       </div>
+      <div className="flex">
+      <button className="px-2 py-2 border border-green-600 text-green-600 rounded-lg text-sm font-semibold hover:bg-green-50">
+          Freeze Card
+        </button>
+        <button className="px-2 py-2 border border-green-600 text-green-600 rounded-lg text-sm font-semibold hover:bg-green-50">
+          Delete Card
+        </button>
+      </div>
     </>
   );
 };
