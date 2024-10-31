@@ -12,11 +12,11 @@ interface CardData {
   balanceColor: string;
   eyeIcon: string;
   logo: string;
-  bgPattern: string; 
+  bgPattern: string;
 }
 
 const Card = () => {
-  const [showDetails, setShowDetails] = useState([false, false]); 
+  const [showDetails, setShowDetails] = useState([true, false]);
 
   const toggleDetails = (index: number) => {
     setShowDetails((prevDetails) => {
@@ -39,7 +39,7 @@ const Card = () => {
       balanceColor: "text-white",
       eyeIcon: "/eye.svg",
       logo: "/patricia-white.svg",
-      bgPattern: "card-bg-pattern", 
+      bgPattern: "card-bg-pattern",
     },
     {
       bgColor: "bg-[#DEF5F2]",
@@ -51,7 +51,9 @@ const Card = () => {
   ];
 
   const Button: React.FC<ButtonProps> = ({ children, color, hoverColor }) => (
-    <button className={`px-2 py-2 border rounded-lg text-sm font-semibold ${color} ${hoverColor} mr-5`}>
+    <button
+      className={`px-2 py-2 border rounded-lg text-sm font-semibold ${color} ${hoverColor} mr-5`}
+    >
       {children}
     </button>
   );
@@ -60,19 +62,31 @@ const Card = () => {
     <div className="space-y-4 mt-4">
       <div className="block lg:flex items-center justify-between mt-5">
         <div className="flex items-center space-x-3">
-          <Image src="/virtual-card.svg" alt="Virtual Card" width={40} height={40} />
+          <Image
+            src="/virtual-card.svg"
+            alt="Virtual Card"
+            width={40}
+            height={40}
+          />
           <div>
             <h2 className="flex">
               <span className="text-base font-semibold lg:text-[20px] text-secondaryColor mr-2">
                 Virtual Card
               </span>
-              <Image src="/dropdown.svg" alt="Dropdown" width={15} height={15} />
+              <Image
+                src="/dropdown.svg"
+                alt="Dropdown"
+                width={15}
+                height={15}
+              />
             </h2>
-            <p className="text-sm text-[#9DA8B6] font-bold">Lorem Ipsum dolor sit amet</p>
+            <p className="text-sm text-[#9DA8B6] font-bold">
+              Lorem Ipsum dolor sit amet
+            </p>
           </div>
         </div>
 
-        <button className="px-4 py-2 bg-yellow-500 rounded-lg font-normal text-[16px] hover:bg-yellow-600 mt-2 lg:m-0">
+        <button className="px-4 py-2 border border-green-600 text-green-600 rounded-lg font-bold text-[16px] hover:bg-patriciaLightGreen mt-2 lg:m-0">
           Create New Card
         </button>
       </div>
@@ -81,17 +95,29 @@ const Card = () => {
         {cardData.map((card, index) => (
           <div
             key={index}
-            className={`w-full rounded-2xl ${card.bgColor} ${card.bgPattern} p-6 relative overflow-hidden h-[204px] mt-4 ${
+            className={`w-full rounded-2xl ${card.bgColor} ${
+              card.bgPattern
+            } p-6 relative overflow-hidden h-[204px] mt-4 ${
               showDetails[index] ? "" : "blur-sm"
             }`}
           >
-            <div className="absolute top-4 right-4 cursor-pointer" onClick={() => toggleDetails(index)}>
-              <Image src={showDetails[index] ? "/eye-close.svg" : "/eye.svg"} alt="Eye" width={20} height={20} />
+            <div
+              className="absolute top-4 right-4 cursor-pointer"
+              onClick={() => toggleDetails(index)}
+            >
+              <Image
+                src={showDetails[index] ? "/eye-close.svg" : "/eye.svg"}
+                alt="Eye"
+                width={20}
+                height={20}
+              />
             </div>
             <div className="mb-4">
               <Image src={card.logo} alt="Logo" width={60} height={60} />
             </div>
-            <div className={`tracking-widest flex justify-between mt-16 ${card.balanceColor}`}>
+            <div
+              className={`tracking-widest flex justify-between mt-16 ${card.balanceColor}`}
+            >
               {cardDetails.map(({ label, key }) => (
                 <span key={key}>{label}</span>
               ))}
@@ -114,17 +140,28 @@ const Card = () => {
                   <Image src="/dot.svg" alt="Dot" width={10} height={10} />
                 </div>
               </div>
-              <Image src="/master-card.svg" alt="Master Card Logo" width={30} height={30} />
+              <Image
+                src="/master-card.svg"
+                alt="Master Card Logo"
+                width={30}
+                height={30}
+              />
             </div>
           </div>
         ))}
       </div>
 
       <div className="flex mt-5">
-        <Button color="border-green-600 text-green-600 w-[143px]" hoverColor="hover:bg-green-50">
+        <Button
+          color="border-green-600 text-green-600 w-[143px]"
+          hoverColor="hover:bg-green-50"
+        >
           Freeze Card
         </Button>
-        <Button color="border-red-600 text-red-600 w-[143px]" hoverColor="hover:bg-red-50">
+        <Button
+          color="border-red-600 text-red-600 w-[143px]"
+          hoverColor="hover:bg-red-50"
+        >
           Delete Card
         </Button>
       </div>

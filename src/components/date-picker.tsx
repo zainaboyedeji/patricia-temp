@@ -23,7 +23,7 @@ export default function DatePickerComponent() {
             />
           </div>
         </div>
-        <div className="mt-2 ml-2">
+        <div className="mt-4 ml-4 lg:mt-2 lg:ml-2">
           <Image src="/download.svg" alt="Download" width={20} height={20} />
         </div>
       </div>
