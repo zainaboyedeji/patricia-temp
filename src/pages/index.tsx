@@ -2,8 +2,8 @@ import Sidebar from "@/components/sidebar";
 import WalletOverview from "@/components/wallet-overview";
 import RecentActivity from "@/components/recent-activity";
 import TabComponent from "@/components/tab-component";
-import Image from "next/image";
 import WebPageTitle from "@/components/web-page-title";
+import NotificationMenu from "@/components/notification-menu";
 
 const Dashboard: React.FC = () => {
   return (
@@ -13,37 +13,16 @@ const Dashboard: React.FC = () => {
         <Sidebar />
         <main className="flex-1 p-6 lg:p-8">
           <div className="border-b">
-            <h1 className="text-3xl mb-2 text-[#444854]">Wallet</h1>
+            <h1 className="text-3xl mb-2 text-[#444854] font-normal">Wallet</h1>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2">
               <WalletOverview />
               <RecentActivity />
             </div>
-            <div className="hidden lg:block">
-              <div className="flex justify-end">
-                <div className="flex justify-end bg-white p-2 w-[30%] rounded-lg">
-                  <Image
-                    src="/notification.svg"
-                    alt="Notification"
-                    width={30}
-                    height={30}
-                    className="mr-2"
-                  />
-                  <Image
-                    src="/girl.svg"
-                    alt="Girl"
-                    width={30}
-                    height={30}
-                    className="mr-2"
-                  />
-                  <Image
-                    src="/ellipsis.svg"
-                    alt="Ellipsis"
-                    width={5}
-                    height={5}
-                  />
-                </div>
+            <div className="">
+              <div className="hidden lg:block mt-10 mb-10">
+                <NotificationMenu />
               </div>
               <TabComponent />
             </div>

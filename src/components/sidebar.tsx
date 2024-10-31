@@ -1,61 +1,55 @@
 import React, { useState } from "react";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
-import router from "next/router";
+import { useRouter } from "next/router";
+import NotificationMenu from "./notification-menu";
 
 const links = [
-  { name: "Dashboard", icon: "/dashboard.svg" },
-  { name: "Activity", icon: "/activity.svg" },
-  { name: "Wallet", icon: "/wallet.svg" },
+  { name: "Dashboard", icon: "/dashboard.svg", href: "/" },
+  { name: "Activity", icon: "/activity.svg", href: "/card" },
+  { name: "Wallet", icon: "/wallet.svg", href: "/" },
   { name: "Products", icon: "/products.svg", href: "/card" },
-  { name: "Referral", icon: "/referral.svg" },
-  { name: "Help Center", icon: "/question.svg", extraClasses: "mt-60" },
+  { name: "Referral", icon: "/referral.svg", href: "/" },
+  {
+    name: "Help Center",
+    icon: "/question.svg",
+    extraClasses: "mt-60",
+    href: "/card",
+  },
 ];
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Dashboard");
+  const router = useRouter();
 
   return (
     <div className="border-r bg-white lg:bg-transparent">
       {/* Mobile Burger Menu */}
       <div className="lg:hidden p-4 bg-white shadow-md flex items-center justify-between">
-        <FaBars className="text-2xl" onClick={() => setIsOpen(!isOpen)} />
+        {isOpen ? (
+          <FaTimes
+            className="text-2xl cursor-pointer"
+            onClick={() => setIsOpen(!isOpen)}
+          />
+        ) : (
+          <FaBars
+            className="text-2xl cursor-pointer"
+            onClick={() => setIsOpen(!isOpen)}
+          />
+        )}
 
         {/* Icons Section */}
-        <div className="flex justify-end">
-          <div className="flex justify-end bg-white p-2 w-[50%] rounded-lg">
-            <Image
-              src="/notification.svg"
-              alt="Notification"
-              width={30}
-              height={30}
-              className="mr-2"
-            />
-            <Image
-              src="/girl.svg"
-              alt="Girl"
-              width={30}
-              height={30}
-              className="mr-2"
-            />
-            <Image
-              src="/ellipsis.svg"
-              alt="Ellipsis"
-              width={5}
-              height={5}
-            />
-          </div>
-        </div>
+        <NotificationMenu />
       </div>
 
       {/* Sidebar */}
       <div
         className={`lg:block ${
           isOpen ? "block" : "hidden"
-        } lg:w-64 h-screen fixed lg:relative z-50 bg-white`}
+        } lg:w-64 h-screen fixed lg:relative z-50 bg-white transition-all`}
       >
-        <div className="mt-10 p-4 pl-8">
+        <div className="mt-5 p-4 pl-8">
           <Image
             src="/logo.svg"
             alt="Logo"
@@ -69,7 +63,10 @@ const Sidebar: React.FC = () => {
             <li key={name} className={`pr-6 ${extraClasses}`}>
               <a
                 href={href}
-                onClick={() => setActiveLink(name)}
+                onClick={() => {
+                  setActiveLink(name);
+                  setIsOpen(false);
+                }}
                 className={`rounded-r-lg p-4 pl-8 flex items-center text-[14px] font-medium text-primaryColor hover:text-gray-900 mb-3 ${
                   activeLink === name
                     ? "bg-[#FFEEA7] text-[#006156] text-md font-bold"

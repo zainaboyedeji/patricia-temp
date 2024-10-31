@@ -38,3 +38,29 @@ button, a, [role="button"] {
   background-repeat: no-repeat;
   background-size: auto;
 }
+
+.react-datepicker {
+  font-family: inherit !important;
+  border: 1px solid #e5e7eb !important; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.react-datepicker__header {
+  background-color: #f3f4f6 !important; 
+  border-bottom: 1px solid #e5e7eb !important;
+  padding: 10px 0 !important;
+  color: #374151 !important;
+  font-weight: bold !important;
+  text-align: center !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #0d9488 !important;
+  color: white !important;
+  border-radius: 4px !important;
+}
+
+
