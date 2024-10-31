@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { useState, FC } from "react";
-import DatePicker from "react-datepicker";
+
 import "react-datepicker/dist/react-datepicker.css";
 import NotificationMenu from "./notification-menu";
+import DatePickerComponent from "./date-picker";
 
 interface Activity {
   icon: JSX.Element;
@@ -72,39 +72,13 @@ const activities: Activity[] = [
 ];
 
 const CardActivity: FC = () => {
-  const [startDate, setStartDate] = useState<Date | null>(new Date());
-
   return (
     <>
-<div className="hidden lg:block">
-<NotificationMenu />
-</div>      <div className="bg-white rounded-lg shadow-md p-6 w-full mx-auto">
-        <div className="flex justify-between items-center mb-4 w-full">
-          <h2 className="text-[#9DA8B6] font-normal w-[30%]">
-            Recent Activity
-          </h2>
-          <div className="flex items-center space-x-2 bg-gray-100 p-2 rounded-lg max-w-xs w-[60%]">
-            <Image src="/calendar.svg" alt="Calendar" width={20} height={20} />
-            <div className="flex items-center w-[60%]">
-              <span className="text-gray-500 text-sm mr-2">Start date:</span>
-              <DatePicker
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                dateFormat="dd/MM/yy"
-                className="text-gray-500 text-sm focus:outline-none bg-transparent"
-                popperClassName="react-datepicker"
-              />
-            </div>
-            <div>
-              <Image
-                src="/download.svg"
-                alt="Download"
-                width={20}
-                height={20}
-              />
-            </div>
-          </div>
-        </div>
+      <div className="hidden lg:block">
+        <NotificationMenu />
+      </div>
+      <div className="bg-white rounded-lg shadow-md p-6 w-full mx-auto">
+        <DatePickerComponent />
 
         <ul className="space-y-4">
           {activities.map((activity, index) => (
@@ -130,7 +104,9 @@ const CardActivity: FC = () => {
                   <p className="text-gray-400 text-sm">{activity.date}</p>
                 </div>
               </div>
-              <p className="lg:font-semibold text-gray-600 text-sm lg:text-normal">{activity.amount}</p>
+              <p className="lg:font-semibold text-gray-600 text-sm lg:text-normal">
+                {activity.amount}
+              </p>
             </li>
           ))}
         </ul>

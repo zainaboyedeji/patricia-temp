@@ -96,7 +96,7 @@ const TabComponent: React.FC<TabComponentProps> = ({ bgColor = "bg-white" }) => 
               label="Learn More about Funding your wallet"
               defaultArrowSrc="/arrow-deep.svg"
               hoverArrowSrc="/arrow.svg"
-              labelClass="text-patriciaGreen font-bold"
+              labelClass="ml-2 text-patriciaGreen font-bold"
               bgColor="bg-patriciaLightGreen"
             />
           </div>
