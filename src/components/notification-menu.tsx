@@ -12,7 +12,7 @@ interface NotificationMenuProps {
 }
 
 const NotificationMenu: React.FC<NotificationMenuProps> = ({
-  containerWidth = "lg:w-[30%] w-full", // Full width on small screens, 30% on larger screens
+  containerWidth = "lg:w-[30%] w-full",
   icons = [
     { src: "/notification.svg", alt: "Notification", width: 30, height: 30 },
     { src: "/girl.svg", alt: "Girl", width: 30, height: 30 },
