@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 interface ButtonProps {
@@ -10,12 +10,21 @@ interface ButtonProps {
 interface CardData {
   bgColor: string;
   balanceColor: string;
-  blur: string;
-  eyeIcon: string;
   logo: string;
 }
 
 const Card = () => {
+  // State to track visibility of details for each card
+  const [showDetails, setShowDetails] = useState([true, true]);
+
+  const toggleDetails = (index: number) => {
+    setShowDetails((prevShowDetails) => {
+      const newShowDetails = [...prevShowDetails];
+      newShowDetails[index] = !newShowDetails[index];
+      return newShowDetails;
+    });
+  };
+
   const cardDetails = [
     { label: "7545", key: "1" },
     { label: "7545", key: "2" },
@@ -27,15 +36,11 @@ const Card = () => {
     {
       bgColor: "bg-[#1D1E2C]",
       balanceColor: "text-white",
-      blur: "",
-      eyeIcon: "/eye.svg",
       logo: "/patricia-white.svg",
     },
     {
       bgColor: "bg-[#DEF5F2]",
       balanceColor: "text-black",
-      blur: "blur-sm",
-      eyeIcon: "/eye-close.svg",
       logo: "/logo.svg",
     },
   ];
@@ -76,19 +81,29 @@ const Card = () => {
           </div>
         </div>
 
-        <button className="px-4 py-2 bg-yellow-500  rounded-lg font-normal text-[16px] hover:bg-yellow-600 mt-2 lg:m-0">
+        <button className="px-4 py-2 bg-yellow-500 rounded-lg font-normal text-[16px] hover:bg-yellow-600 mt-2 lg:m-0">
           Create New Card
         </button>
       </div>
 
-      <div className="block lg:flex space-x-5">
-        {cardData.map((card, index) => (
+      <div className="block lg:flex lg:space-x-5">
+      {cardData.map((card, index) => (
           <div
             key={index}
-            className={`w-full rounded-2xl ${card.bgColor} p-6 relative overflow-hidden h-[204px] mt-4 ${card.blur}`}
+            className={`w-full rounded-2xl ${card.bgColor} p-6 relative overflow-hidden h-[204px] mt-4 ${
+              showDetails[index] ? "" : "blur-sm"
+            }`}
           >
-            <div className="absolute top-4 right-4">
-              <Image src={card.eyeIcon} alt="Eye" width={20} height={20} />
+            <div
+              className="absolute top-4 right-4 cursor-pointer"
+              onClick={() => toggleDetails(index)}
+            >
+              <Image
+                src={showDetails[index] ? "/eye.svg" : "/eye-close.svg"}
+                alt="Toggle Eye"
+                width={20}
+                height={20}
+              />
             </div>
             <div className="mb-4">
               <Image src={card.logo} alt="Logo" width={60} height={60} />
@@ -97,12 +112,12 @@ const Card = () => {
               className={`tracking-widest flex justify-between mt-16 ${card.balanceColor}`}
             >
               {cardDetails.map(({ label, key }) => (
-                <span key={key}>{label}</span>
+                <span key={key}>{showDetails[index] ? label : "****"}</span>
               ))}
             </div>
             <div className={`mt-2 flex ${card.balanceColor}`}>
               <span className="text-[9px] mt-1 mr-2">BALANCE</span>
-              <div>$200,000</div>
+              <div>{showDetails[index] ? "$200,000" : "****"}</div>
             </div>
             <div className={`flex justify-between mt-2 ${card.balanceColor}`}>
               <div className="text-[10px]">Card Holder Name</div>
@@ -115,7 +130,11 @@ const Card = () => {
               <div className="flex">
                 <div className="text-[10px]">CVV</div>
                 <div className="mt-1 ml-1">
-                  <Image src="/dot.svg" alt="Dot" width={10} height={10} />
+                  {showDetails[index] ? (
+                    <Image src="/dot.svg" alt="Dot" width={10} height={10} />
+                  ) : (
+                    "****"
+                  )}
                 </div>
               </div>
               <Image
