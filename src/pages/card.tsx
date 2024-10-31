@@ -12,7 +12,7 @@ const CardPage: React.FC = () => {
       <WebPageTitle title="Card | Patricia Customer Dashboard" />
       <div className="lg:flex">
         <Sidebar />
-        <main className="flex-1 p-6 lg:p-8 bg-white">
+        <main className="flex-1 p-6 lg:p-8">
           <div className="border-b flex pb-5">
             <Image
               src="arrow-circle-left.svg"

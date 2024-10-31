@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -13,7 +13,7 @@ const links = [
   {
     name: "Help Center",
     icon: "/question.svg",
-    extraClasses: "mt-60",
+    extraClasses: "lg:mt-60 mt-48",
     href: "/card",
   },
 ];
@@ -22,6 +22,14 @@ const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("Dashboard");
   const router = useRouter();
+
+  useEffect(() => {
+    // Prevent body from scrolling when sidebar is open
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto"; // Clean up on unmount
+    };
+  }, [isOpen]);
 
   return (
     <div className="border-r bg-white lg:bg-transparent">
@@ -47,7 +55,7 @@ const Sidebar: React.FC = () => {
       <div
         className={`lg:block ${
           isOpen ? "block" : "hidden"
-        } lg:w-64 h-screen fixed lg:relative z-50 bg-white transition-all`}
+        } lg:w-64 h-screen fixed lg:relative z-50 bg-white overflow-y-scroll transition-all`}
       >
         <div className="mt-5 p-4 pl-8">
           <Image

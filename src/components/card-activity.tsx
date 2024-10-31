@@ -3,6 +3,7 @@ import Image from "next/image";
 import "react-datepicker/dist/react-datepicker.css";
 import NotificationMenu from "./notification-menu";
 import DatePickerComponent from "./date-picker";
+import { FC } from "react";
 
 interface Activity {
   icon: JSX.Element;
@@ -74,7 +75,7 @@ const activities: Activity[] = [
 const CardActivity: FC = () => {
   return (
     <>
-      <div className="hidden lg:block">
+      <div className="hidden lg:block mt-10">
         <NotificationMenu />
       </div>
       <div className="bg-white rounded-lg shadow-md p-6 w-full mx-auto">

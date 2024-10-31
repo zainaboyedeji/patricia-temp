@@ -11,7 +11,7 @@ const Dashboard: React.FC = () => {
       <WebPageTitle title="Wallet | Patricia Customer Dashboard" />
       <div className="lg:flex">
         <Sidebar />
-        <main className="flex-1 p-6 lg:p-8">
+        <main className="flex-1 p-6 lg:p-4">
           <div className="border-b">
             <h1 className="text-3xl mb-2 text-[#444854] font-normal">Wallet</h1>
           </div>
@@ -21,7 +21,7 @@ const Dashboard: React.FC = () => {
               <RecentActivity />
             </div>
             <div className="">
-              <div className="hidden lg:block mt-10 mb-10">
+              <div className="hidden lg:block mt-10 mb-6">
                 <NotificationMenu />
               </div>
               <TabComponent />
