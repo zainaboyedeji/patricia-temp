@@ -25,7 +25,11 @@ const Sidebar: React.FC = () => {
 
   useEffect(() => {
     // Prevent body from scrolling when sidebar is open
-    document.body.style.overflow = isOpen ? "hidden" : "auto";
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
     return () => {
       document.body.style.overflow = "auto"; // Clean up on unmount
     };
@@ -38,12 +42,12 @@ const Sidebar: React.FC = () => {
         {isOpen ? (
           <FaTimes
             className="text-2xl cursor-pointer"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsOpen(false)}
           />
         ) : (
           <FaBars
             className="text-2xl cursor-pointer"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsOpen(true)}
           />
         )}
 
@@ -55,7 +59,7 @@ const Sidebar: React.FC = () => {
       <div
         className={`lg:block ${
           isOpen ? "block" : "hidden"
-        } lg:w-64 h-screen fixed lg:relative z-50 bg-white overflow-y-scroll transition-all`}
+        } lg:w-64 h-screen fixed lg:relative z-50 bg-white transition-all`}
       >
         <div className="mt-5 p-4 pl-8">
           <Image

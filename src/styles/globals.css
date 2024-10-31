@@ -19,7 +19,7 @@
 body {
   font-family: 'Gilroy', sans-serif;
   background-color: white;
-  overflow: hidden!important;
+  /* overflow: hidden!important; */
 }
 
 button, a, [role="button"] {
@@ -65,8 +65,8 @@ button, a, [role="button"] {
 }
 
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   body {
     overflow: auto!important; 
   }
-}
+} */
