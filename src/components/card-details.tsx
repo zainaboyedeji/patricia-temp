@@ -33,7 +33,7 @@ const CardDetails: FC = () => {
           <p className="text-gray-800 font-medium text-left">March 3rd 2020, 9:48:36 am</p>
         </div>
       </div>
-      <button className="self-start px-2 py-2 border border-green-600 text-green-600 rounded-lg text-sm font-semibold w-full sm:w-[118px] hover:bg-green-50">
+      <button className="self-start px-2 py-2 border border-green-600 text-green-600 rounded-lg text-sm font-semibold w-full sm:w-[118px] hover:bg-green-50 mt-5 lg:mt-0">
         Fund Card
       </button>
     </div>
