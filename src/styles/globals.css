@@ -19,7 +19,7 @@
 body {
   font-family: 'Gilroy', sans-serif;
   background-color: white;
-  /* overflow: hidden!important; */
+  overflow: hidden!important;
 }
 
 button, a, [role="button"] {
@@ -64,9 +64,13 @@ button, a, [role="button"] {
   border-radius: 4px !important;
 }
 
+.sidebar-container {
+  overflow-y: auto; 
+}
 
-/* @media (max-width: 768px) {
+
+@media (max-width: 768px) {
   body {
     overflow: auto!important; 
   }
-} */
+}

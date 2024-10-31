@@ -24,20 +24,22 @@ const Sidebar: React.FC = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // Prevent body from scrolling when sidebar is open
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
     } else {
       document.body.style.overflow = "auto";
+      document.body.style.position = "relative";
     }
     return () => {
-      document.body.style.overflow = "auto"; // Clean up on unmount
+      document.body.style.overflow = "auto";
+      document.body.style.position = "relative";
     };
   }, [isOpen]);
 
   return (
     <div className="border-r bg-white lg:bg-transparent">
-      {/* Mobile Burger Menu */}
       <div className="lg:hidden p-4 bg-white shadow-md flex items-center justify-between">
         {isOpen ? (
           <FaTimes
@@ -51,11 +53,9 @@ const Sidebar: React.FC = () => {
           />
         )}
 
-        {/* Icons Section */}
         <NotificationMenu />
       </div>
 
-      {/* Sidebar */}
       <div
         className={`lg:block ${
           isOpen ? "block" : "hidden"
