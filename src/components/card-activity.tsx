@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import "react-datepicker/dist/react-datepicker.css";
 import NotificationMenu from "./notification-menu";
 import DatePickerComponent from "./date-picker";
@@ -80,7 +79,6 @@ const CardActivity: FC = () => {
       </div>
       <div className="bg-white rounded-lg shadow-md p-6 w-full mx-auto">
         <DatePickerComponent />
-
         <ul className="space-y-4">
           {activities.map((activity, index) => (
             <li key={index} className="flex justify-between items-center">

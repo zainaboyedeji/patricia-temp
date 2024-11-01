@@ -84,46 +84,46 @@ const RecentActivity: React.FC = () => {
         <DatePickerComponent />
 
         <ul className="mt-4 space-y-2">
-      {transactions.map((transaction, idx) => (
-        <li
-          key={idx}
-          className="flex flex-wrap lg:flex-nowrap justify-between items-center text-sm lg:text-base p-2 rounded transition-colors duration-200 hover:bg-patriciaLightGreen w-full"
-        >
-          <div className="w-1/5 text-center lg:text-left mb-2 lg:mb-0">
-            <Image
-              src="/naira-light.svg"
-              alt="Naira"
-              width={40}
-              height={40}
-            />
-          </div>
+          {transactions.map((transaction, idx) => (
+            <li
+              key={idx}
+              className="flex flex-wrap lg:flex-nowrap justify-between items-center text-sm lg:text-base p-2 rounded transition-colors duration-200 hover:bg-patriciaLightGreen w-full"
+            >
+              <div className="w-1/5 text-center lg:text-left mb-2 lg:mb-0">
+                <Image
+                  src="/naira-light.svg"
+                  alt="Naira"
+                  width={40}
+                  height={40}
+                />
+              </div>
 
-          <span className="text-patriciaGrey lg:text-[14px] text-[10px] font-bold w-1/5 mb-2 lg:mb-0">
-            {transaction.type}
-          </span>
+              <span className="text-patriciaGrey lg:text-[14px] text-[10px] font-bold w-1/5 mb-2 lg:mb-0">
+                {transaction.type}
+              </span>
 
-          <span className="text-[#9DA8B6] lg:text-[14px] text-[10px] font-bold w-1/5 mb-2 lg:mb-0">
-            {transaction.amount}
-          </span>
+              <span className="text-[#9DA8B6] lg:text-[14px] text-[10px] font-bold w-1/5 mb-2 lg:mb-0">
+                {transaction.amount}
+              </span>
 
-          <span className="text-[#9DA8B6] lg:text-[14px] text-[10px] font-bold w-1/5 mb-2 lg:mb-0">
-            {transaction.time}
-          </span>
+              <span className="text-[#9DA8B6] lg:text-[14px] text-[10px] font-bold w-1/5 mb-2 lg:mb-0">
+                {transaction.time}
+              </span>
 
-          <span
-            className={`w-1/5 text-center lg:text-left lg:text-[14px] text-[10px] font-bold ${
-              transaction.status === "Success"
-                ? "text-green-600"
-                : transaction.status === "Failed"
-                ? "text-red-600"
-                : "text-yellow-500"
-            }`}
-          >
-            {transaction.status}
-          </span>
-        </li>
-      ))}
-    </ul>
+              <span
+                className={`w-1/5 text-center lg:text-left lg:text-[14px] text-[10px] font-bold ${
+                  transaction.status === "Success"
+                    ? "text-green-600"
+                    : transaction.status === "Failed"
+                    ? "text-red-600"
+                    : "text-yellow-500"
+                }`}
+              >
+                {transaction.status}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );
