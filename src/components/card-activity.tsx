@@ -103,7 +103,7 @@ const CardActivity: FC = () => {
                   <p className="text-gray-400 text-sm">{activity.date}</p>
                 </div>
               </div>
-              <p className="lg:font-semibold text-gray-600 text-sm lg:text-normal">
+              <p className="lg:font-semibold text-[#9DA8B6] text-sm lg:text-normal">
                 {activity.amount}
               </p>
             </li>

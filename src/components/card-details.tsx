@@ -7,7 +7,7 @@ const CardDetails: FC = () => {
       <div className="flex flex-col space-y-5 w-full sm:w-[80%]">
         <div className="flex space-x-4 items-center">
           <p className="text-[#9DA8B6] text-left w-[150px] sm:w-[200px]">Card Balance:</p>
-          <p className="text-patriciaGreen font-medium text-left">$3000.73</p>
+          <p className="text-patriciaGreen font-bold text-left">$3000.73</p>
         </div>
 
         <div className="flex space-x-4 items-center">

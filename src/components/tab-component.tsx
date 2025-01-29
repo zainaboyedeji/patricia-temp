@@ -24,7 +24,7 @@ const DepositOption: React.FC<DepositOptionProps> = ({
 
   return (
     <div
-      className={`flex justify-between items-center p-4 rounded-2xl transition-colors duration-200 ${bgColor} hover:bg-gray-50`}
+      className={`flex justify-between items-center py-6 px-4 rounded-2xl transition-colors duration-200 ${bgColor} hover:bg-gray-50`}
       style={{
         boxShadow:
           "0px 10px 20px rgba(0, 0, 0, 0.05), 0px 5px 10px rgba(0, 0, 0, 0.02)",

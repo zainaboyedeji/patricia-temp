@@ -106,7 +106,7 @@ const Card = () => {
               onClick={() => toggleDetails(index)}
             >
               <Image
-                src={showDetails[index] ? "/eye-close.svg" : "/eye.svg"}
+                src={showDetails[index] ? "/eye-close.png" : "/eye.svg"}
                 alt="Eye"
                 width={20}
                 height={20}
