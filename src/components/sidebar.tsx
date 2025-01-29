@@ -13,7 +13,7 @@ const links = [
   {
     name: "Help Center",
     icon: "/question.svg",
-    extraClasses: "lg:mt-60 mt-48",
+    extraClasses: "lg:mt-60 mt-20",
     href: "/card",
   },
 ];
@@ -69,8 +69,8 @@ const Sidebar: React.FC = () => {
             height={120}
             onClick={() => router.push("/")}
           />
-        </div>
-        <ul className="mt-20">
+        </div> 
+        <ul className="lg:mt-20 mt-10">
           {links.map(({ name, icon, href = "#", extraClasses = "" }) => (
             <li key={name} className={`pr-6 ${extraClasses}`}>
               <a
