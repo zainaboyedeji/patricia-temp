@@ -29,7 +29,6 @@ const CardPage: React.FC = () => {
                 <Card />
                 <CardDetails />
               </div>
-
               <div className="lg:w-2/5 w-full">
                 <CardActivity />
               </div>
